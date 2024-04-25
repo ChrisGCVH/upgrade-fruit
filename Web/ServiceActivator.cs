@@ -1,6 +1,6 @@
 ﻿#nullable disable
 
-namespace CCExample
+namespace HicomInterview
 {
     /// <summary>
     /// Add static service resolver to use when dependencies injection is not available
