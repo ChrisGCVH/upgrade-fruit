@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HicomInterview", "HicomInterview.csproj", "{9B503363-A9FF-4FCB-98C5-3D519B3F8E97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HicomInterview.Web", "Web\HicomInterview.Web.csproj", "{9B503363-A9FF-4FCB-98C5-3D519B3F8E97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HicomInterview.Application", "Application\HicomInterview.Application.csproj", "{BD31B464-8E54-47EF-A075-4CBAB49EFABF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HicomInterview.Domain", "Domain\HicomInterview.Domain.csproj", "{12A71FD2-8E41-4482-9307-4CAC615B5D5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HicomInterview.Infrastructure", "Infrastructure\HicomInterview.Infrastructure.csproj", "{4285B727-9B52-42EA-8588-C13AA74F0254}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{9B503363-A9FF-4FCB-98C5-3D519B3F8E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B503363-A9FF-4FCB-98C5-3D519B3F8E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B503363-A9FF-4FCB-98C5-3D519B3F8E97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD31B464-8E54-47EF-A075-4CBAB49EFABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD31B464-8E54-47EF-A075-4CBAB49EFABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD31B464-8E54-47EF-A075-4CBAB49EFABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD31B464-8E54-47EF-A075-4CBAB49EFABF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A71FD2-8E41-4482-9307-4CAC615B5D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A71FD2-8E41-4482-9307-4CAC615B5D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A71FD2-8E41-4482-9307-4CAC615B5D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A71FD2-8E41-4482-9307-4CAC615B5D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4285B727-9B52-42EA-8588-C13AA74F0254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4285B727-9B52-42EA-8588-C13AA74F0254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4285B727-9B52-42EA-8588-C13AA74F0254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4285B727-9B52-42EA-8588-C13AA74F0254}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
