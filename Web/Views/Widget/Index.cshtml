@@ -13,7 +13,8 @@
 <p>
     <a class="btn btn-primary" asp-action="Add">Add New</a>
 </p>
-<table id="WidgetTable" class="table">
+
+<table id="WidgetTable" hicom-grid="true">
     <thead>
         <tr>
             <th>
@@ -56,9 +57,3 @@
         }
     </tbody>
 </table>
-
-<div id="WidgetTableRendered"></div>
-
-<script>
-    new HicomGrid('WidgetTable', 'WidgetTableRendered');
-</script>
