@@ -9,11 +9,8 @@ namespace HicomInterview.Web.Controllers
         public void SetModelState<TResult>(Result<TResult> result)
         {
             result.HasError(out IEnumerable<ValidationError> validationErrors);
-            result.HasError(out IEnumerable<ConcurrencyError> concurrencyErrors);
 
-            var errors = (validationErrors as IEnumerable<IFailure>).Concat(concurrencyErrors);
-
-            errors.ToList().ForEach(error => ModelState.AddModelError(error?.PropertyName!, error?.Message!));
+            validationErrors.ToList().ForEach(error => ModelState.AddModelError(error?.PropertyName!, error?.Message!));
         }
     }
 }

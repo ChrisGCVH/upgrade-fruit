@@ -19,23 +19,6 @@ namespace HicomInterview.Validation
         }
     }
 
-    public class ConcurrencyError : Error, IFailure
-    {
-        public string PropertyName { get; }
-
-        public ConcurrencyError(string propertyName, string message)
-            : this(message)
-        {
-            PropertyName = propertyName;
-        }
-
-        public ConcurrencyError(string message)
-        {
-            PropertyName = string.Empty;
-            Message = message;
-        }
-    }
-
     public interface IFailure
     {
         string PropertyName { get; }

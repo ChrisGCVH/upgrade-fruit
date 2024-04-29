@@ -3,10 +3,7 @@ using FluentValidation.Results;
 using HicomInterview.Application.Interfaces.Persistence;
 using HicomInterview.Domain.Entities;
 using HicomInterview.Validation;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using System.Reflection;
 
 namespace HicomInterview.Infrastructure.Persistence
@@ -14,34 +11,16 @@ namespace HicomInterview.Infrastructure.Persistence
     /// <summary>
     /// Implementation of IApplicationDbContext, targeting Sql Server
     /// </summary>
-    public class ApplicationDbContext : IdentityDbContext, IApplicationDbContext
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
-        private readonly IConfiguration _configuration;
-
         public ApplicationDbContext(
-            DbContextOptions options,
-            IConfiguration configuration
+            DbContextOptions options
         ) : base(options)
         {
-            _configuration = configuration;
         }
 
         public DbSet<Widget> Widget => Set<Widget>();
         public DbSet<Address> Address => Set<Address>();
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                string? connString = _configuration.GetConnectionString("DefaultConnection");
-
-                if (!string.IsNullOrEmpty(connString))
-                {
-                    SqlConnection Connection = new(connString);
-                    optionsBuilder.UseSqlServer(Connection);
-                }
-            }
-        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -65,7 +44,7 @@ namespace HicomInterview.Infrastructure.Persistence
                 var validationResult = new ValidationResult();
                 validationResult.Errors.Add(new ValidationFailure(string.Empty, "Unable to save changes. The record was updated by another user."));
 
-                return Result.Fail("").WithValidationResults(validationResult.Errors, AppErrorType.Concurrency);
+                return Result.Fail("").WithValidationResults(validationResult.Errors);
             }
         }
 

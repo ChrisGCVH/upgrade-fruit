@@ -1,0 +1,15 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": true,
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "target": "es6",
+    "outDir": "../wwwroot/js"
+  },
+  "include": [
+    "**/*"
+  ]
+}

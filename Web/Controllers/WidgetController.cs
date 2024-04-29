@@ -1,12 +1,10 @@
 ﻿using FluentResults;
 using HicomInterview.Application.DataModels;
 using HicomInterview.Application.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HicomInterview.Web.Controllers
 {
-    [Authorize]
     public class WidgetController : BaseController
     {
         private readonly IWidgetService _widgetService;

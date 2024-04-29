@@ -11,9 +11,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HicomInterview.Application.Services
 {
-    /// <summary>
-    /// Implementation of IWidgetService
-    /// </summary>
     public class WidgetService : IWidgetService
     {
         private readonly IApplicationDbContext _context;
@@ -108,32 +105,5 @@ namespace HicomInterview.Application.Services
 
             return entity?.Adapt<WidgetDM>()!;
         }
-
-        public async Task ForceConcurrencyError(int widgetId)
-        {
-            var entity = await _context.Widget
-                        .Where(t => t.WidgetId == widgetId)
-                        .Include(a => a.OldAddress)
-                        .Include(a => a.NewAddress)
-                        .SingleOrDefaultAsync();
-
-            if (entity == null)
-            {
-                throw new DbUpdateException($"Record not found for id: {widgetId}");
-            }
-
-            entity.FirstName += "1";
-            if (entity.OldAddress != null)
-            {
-                entity.OldAddress.AddressLine1 += "1";
-            }
-            if (entity.NewAddress != null)
-            {
-                entity.NewAddress.AddressLine1 += "1";
-            }
-
-            await _context.SaveChangesAsync();
-        }
     }
-
 }

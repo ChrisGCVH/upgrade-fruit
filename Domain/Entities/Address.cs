@@ -6,9 +6,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HicomInterview.Domain.Entities;
 
-/// <summary>
-/// Entity representing the database table or view
-/// </summary>
 public partial class Address
 {
     [Key]

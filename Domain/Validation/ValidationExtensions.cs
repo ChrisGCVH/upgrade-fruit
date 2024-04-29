@@ -5,8 +5,7 @@ namespace HicomInterview.Validation
 {
     public enum AppErrorType
     {
-        Validation,
-        Concurrency
+        Validation
     }
 
     public static class ValidationExtensions
@@ -26,7 +25,6 @@ namespace HicomInterview.Validation
             return appErrorType switch
             {
                 AppErrorType.Validation => new ValidationError(failure.PropertyName, failure.ErrorMessage),
-                AppErrorType.Concurrency => new ConcurrencyError(failure.PropertyName, failure.ErrorMessage),
                 _ => throw new System.NotImplementedException()
             };
         }
@@ -40,17 +38,11 @@ namespace HicomInterview.Validation
                 message = "Validation error";
 
             }
-            if (result.HasError(out IEnumerable<ConcurrencyError> concurrencyErrors))
-            {
-                message = "Concurrency error";
-            }
-
-            var errors = (validationErrors as IEnumerable<IFailure>).Concat(concurrencyErrors);
 
             return new ValidationFailureResponse
             {
                 Message = message!,
-                Errors = errors.Select(x => new ValidationResponse
+                Errors = validationErrors.Select(x => new ValidationResponse
                 {
                     PropertyName = x?.PropertyName!,
                     Message = x?.Message!

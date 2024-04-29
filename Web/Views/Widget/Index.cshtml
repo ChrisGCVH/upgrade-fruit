@@ -3,13 +3,17 @@
     ViewData["Title"] = "Widget Page";
 }
 
+<link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+<script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+<script src="~/js/hicomgrid.js"></script>
+
 <div class="text-center">
     <h1 class="display-4">Widgets!</h1>
 </div>
 <p>
-    <a asp-action="Add">Add New</a>
+    <a class="btn btn-primary" asp-action="Add">Add New</a>
 </p>
-<table class="table">
+<table id="WidgetTable" class="table">
     <thead>
         <tr>
             <th>
@@ -24,7 +28,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.EmailAddress)
             </th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -44,11 +48,17 @@
                     @Html.DisplayFor(modelItem => item.EmailAddress)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.WidgetId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.WidgetId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.WidgetId">Delete</a>
+                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.WidgetId">Edit</a> 
+                    <a class="btn btn-info mx-2" asp-action="Details" asp-route-id="@item.WidgetId">Details</a> 
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.WidgetId">Delete</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<div id="WidgetTableRendered"></div>
+
+<script>
+    new HicomGrid('WidgetTable', 'WidgetTableRendered');
+</script>
