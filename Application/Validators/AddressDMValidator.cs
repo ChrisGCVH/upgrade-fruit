@@ -1,5 +1,5 @@
-﻿using HicomInterview.Application.DataModels;
-using FluentValidation;
+﻿using FluentValidation;
+using HicomInterview.Application.DataModels;
 
 namespace HicomInterview.Application.Validators
 {

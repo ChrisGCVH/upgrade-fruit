@@ -12,9 +12,6 @@ connectionString = connectionString.Replace("|DataDirectory|", Directory.GetPare
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
 
-
-builder.Services.AddControllersWithViews();
-
 // Add services for the application
 builder.Services.AddApplicationServices();
 

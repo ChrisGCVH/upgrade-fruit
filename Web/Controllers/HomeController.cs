@@ -1,10 +1,11 @@
 using HicomInterview.Models;
+using HicomInterview.Web.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace HicomInterview.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
 

@@ -48,6 +48,9 @@ namespace HicomInterview.Infrastructure.Persistence
             }
         }
 
+        /// <summary>
+        /// Reset RowVersion properties to their original value
+        /// </summary>
         private void UpdateRowVersionOriginalValue()
         {
             foreach (var trackedEntry in ChangeTracker.Entries().Where(tracking => tracking.State == EntityState.Unchanged || tracking.State == EntityState.Modified || tracking.State == EntityState.Deleted))

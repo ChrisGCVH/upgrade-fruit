@@ -2,6 +2,9 @@
 
 namespace HicomInterview.Validation
 {
+    /// <summary>
+    /// Extend FluentResults.Error to include PropertyName & Message similar to ModelState.Error
+    /// </summary>
     public class ValidationError : Error, IFailure
     {
         public string PropertyName { get; }

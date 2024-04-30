@@ -8,6 +8,9 @@ namespace HicomInterview.Validation
         Validation
     }
 
+    /// <summary>
+    /// Extension methods to add FluentResults to a FluentValidation.Result and create a Response object from a FluentResult
+    /// </summary>
     public static class ValidationExtensions
     {
         public static Result WithValidationResults(this Result result, List<ValidationFailure> failures, AppErrorType appErrorType = AppErrorType.Validation)
